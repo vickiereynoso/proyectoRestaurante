@@ -5,7 +5,7 @@ import com.proyectoRestaurante.daos.*;
 import java.sql.SQLException;
 import java.util.*;
 
-public class App {
+public class AppPrincipal {
 
 	public static void main(String[] args) throws SQLException {
 		// TODO Auto-generated method stub
