@@ -81,44 +81,64 @@ public class AppPrincipal {
 		
 		
 		// --------------------- Lo mismo pero con Scanner -------------------
-		
-//		
-//		Scanner teclado = new Scanner(System.in);
-//		System.out.println("Ingrese su opción:" + 
-//		"\n" + "1.- Ingresar clientes." 
-//		+"\n" + "2.- Ingresar comidas." 
-//		+ "\n" + "3.- Haga una venta"
-//		+ "\n" + "4.- Salir del sistema.");
-//		int valor = teclado.nextInt();
-//		switch(valor) {
-//		case 1: 
-//			while(true) {
-//			System.out.println("Ingrese el DNI del cliente:");
-//			int dni = teclado.nextInt();
-//			System.out.println("Ingrese el nombre del cliente:");
-//			String nombreCliente = teclado.next();
-//			System.out.println("Ingrese el email del cliente:");
-//			String email = teclado.next();
-//			Cliente c1 = new Cliente(dni, nombreCliente, email);
-//			ClienteDAO cDAO = new ClienteDAO();
-//			cDAO.insertar(c1);
-//			break;
-//			}
-//			break;
-//		case 2:
-//			while(true) {
-//			System.out.println("Ingrese nombre de comida:");
-//			String nombreComida = teclado.next();
-//			System.out.println("Ingrese descripción comida:");
-//			String descripcion = teclado.next();
-//			System.out.println("Ingrese precio comida:");
-//			double precio = teclado.nextDouble();
-//			Comida comida1 = new Comida(nombreComida, descripcion, precio);
-//			ComidaDAO comidaDAO = new ComidaDAO();
-//			comidaDAO.insertar(comida1);
-//			break;
-//			}
-//			break;
+		Scanner teclado = new Scanner(System.in);
+		int opcion = 9;
+		//int valor = 99;
+		do{ 		
+			System.out.println("----------------------");
+			System.out.println("Ingrese su opción:" + 
+			"\n" + "1.- Ingresar clientes." 
+			+"\n" + "2.- Ingresar comidas." 
+			+ "\n" + "3.- Haga una venta"
+			+ "\n" + "4.- Salir del sistema.");
+			int valor = teclado.nextInt();
+			opcion = valor;
+			switch(valor) {
+			case 1: 
+				
+				
+				do {
+				System.out.println("Ingrese el DNI del cliente:");
+				int dni = teclado.nextInt();
+				System.out.println("Ingrese el nombre del cliente:");
+				String nombreCliente = teclado.next();
+				System.out.println("Ingrese el email del cliente:");
+				String email = teclado.next();
+				Cliente c1 = new Cliente(dni, nombreCliente, email);
+				ClienteDAO cDAO = new ClienteDAO();
+				cDAO.insertar(c1);
+				System.out.println("");
+				System.out.println("¿Quiere ingresar otro cliente? SI: 1 | NO: 0");
+				opcion = teclado.nextInt();
+				}while(opcion != 0);
+				break;
+			case 2:
+				opcion = 9;
+				do {
+				System.out.println("Ingrese nombre de comida:");
+				String nombreComida = teclado.next();
+				System.out.println("Ingrese descripción comida:");
+				String descripcion = teclado.next();
+				System.out.println("Ingrese precio comida:");
+				//teclado.nextLine();
+				double precio = teclado.nextDouble();
+				Comida comida1 = new Comida(nombreComida, descripcion, precio);
+				ComidaDAO comidaDAO = new ComidaDAO();
+				comidaDAO.insertar(comida1);
+				System.out.println("");
+				System.out.println("¿Quiere ingresar otra comida? SI: 1 | NO: 0");
+				opcion = teclado.nextInt();
+				}while(opcion != 0);
+				break;					
+			case 4:				
+				break;
+			default:
+				System.out.println("Ingresaste un número equivocado. Volvé a intentar.");
+				//break;
+				}
+		}while(opcion != 4);
+		System.out.println("Saliste del sistema");
+
 //		case 3:
 //			while(true) {
 //			System.out.println("Ingrese id cliente:");
