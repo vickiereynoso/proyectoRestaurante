@@ -1,6 +1,6 @@
 package com.proyectoRestaurante.entidades;
 
-public class Cliente { //laboralmente se llamaría ClienteVO (Object Value, algo así).
+public class Cliente { //HOLA laboralmente se llamaría ClienteVO (Object Value, algo así).
 
 	private int id;
 	private int dni;
