@@ -81,27 +81,28 @@ public class AppPrincipal {
 		
 		
 		// --------------------- Lo mismo pero con Scanner -------------------
+		
 		Scanner teclado = new Scanner(System.in);
 		int opcion = 9;
-		//int valor = 99;
+		
+		
 		do{ 		
 			System.out.println("----------------------");
 			System.out.println("Ingrese su opción:" + 
 			"\n" + "1.- Ingresar clientes." 
 			+"\n" + "2.- Ingresar comidas." 
-			+ "\n" + "3.- Haga una venta"
+			+ "\n" + "3.- Hacer una venta."
 			+ "\n" + "4.- Salir del sistema.");
 			int valor = teclado.nextInt();
 			opcion = valor;
 			switch(valor) {
-			case 1: 
-				
-				
+			case 1: 	
 				do {
 				System.out.println("Ingrese el DNI del cliente:");
 				int dni = teclado.nextInt();
 				System.out.println("Ingrese el nombre del cliente:");
 				String nombreCliente = teclado.next();
+				teclado.nextLine();
 				System.out.println("Ingrese el email del cliente:");
 				String email = teclado.next();
 				Cliente c1 = new Cliente(dni, nombreCliente, email);
@@ -113,14 +114,14 @@ public class AppPrincipal {
 				}while(opcion != 0);
 				break;
 			case 2:
-				opcion = 9;
+				//opcion = 9;
 				do {
 				System.out.println("Ingrese nombre de comida:");
-				String nombreComida = teclado.next();
+				String nombreComida = teclado.nextLine();
+				teclado.nextLine();
 				System.out.println("Ingrese descripción comida:");
-				String descripcion = teclado.next();
+				String descripcion = teclado.nextLine();
 				System.out.println("Ingrese precio comida:");
-				//teclado.nextLine();
 				double precio = teclado.nextDouble();
 				Comida comida1 = new Comida(nombreComida, descripcion, precio);
 				ComidaDAO comidaDAO = new ComidaDAO();
@@ -132,12 +133,29 @@ public class AppPrincipal {
 				break;					
 			case 4:				
 				break;
+			case 3:
+				do {
+				System.out.println("Ingrese id cliente:");
+				int idCliente = teclado.nextInt();
+				ComidaDAO.listar();
+				System.out.println("Ingrese id comida:");
+				int idComida = teclado.nextInt();
+				System.out.println("Ingrese nombre vendedor:");
+				String nombreVendedor = teclado.next();
+				Venta venta1 = new Venta(idCliente, idComida, nombreVendedor);
+				VentaDAO ventaDAO = new VentaDAO();
+				ventaDAO.insertar(venta1);
+				System.out.println("");
+				System.out.println("¿Quiere hacer otra venta? SI: 1 | NO: 0");
+				opcion = teclado.nextInt();
+				}while(opcion != 0);
+				break;
 			default:
 				System.out.println("Ingresaste un número equivocado. Volvé a intentar.");
 				//break;
 				}
 		}while(opcion != 4);
-		System.out.println("Saliste del sistema");
+		System.out.println("Saliste del sistema.");
 
 //		case 3:
 //			while(true) {
@@ -152,14 +170,7 @@ public class AppPrincipal {
 //			ventaDAO.insertar(venta1);
 //			break;
 //			}
-//			break;
-//		case 4:
-//			System.out.println("Saliste del sistema");
-//			break;
-//		default:
-//			System.out.println("Ingresaste un número equivocado. Volvé a intentar.");
-//			break;
-//		}
+
 		
 		
 		
