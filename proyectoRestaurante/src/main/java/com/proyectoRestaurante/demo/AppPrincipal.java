@@ -135,6 +135,7 @@ public class AppPrincipal {
 				break;
 			case 3:
 				do {
+				ClienteDAO.listar();
 				System.out.println("Ingrese id cliente:");
 				int idCliente = teclado.nextInt();
 				ComidaDAO.listar();
