@@ -107,5 +107,34 @@ public class ComidaDAO {
 	}
 	
 	
+	//BUSCAR REGISTRO :
+	
+	public static void buscar(Comida comida) throws SQLException { 
+		
+		Connection conexion = Conexion.conectar();
+		Statement stmt = conexion.createStatement();	
+		try {
+			String query = "SELECT * FROM COMIDA";
+			ResultSet datos = stmt.executeQuery(query); //execute query me retornará todos los datos.
+			//System.out.println("Los datos fueron mostrados correctamente.");
+			if(datos.getString("nombre") == comida.getNombre()) {
+				System.out.println("ID: "+ datos.getInt("id"));
+				System.out.println("Nombre: "+ datos.getString("nombre"));
+				System.out.println("Descripcion: "+ datos.getString("descripcion"));
+				System.out.println("Precio: "+ datos.getDouble("precio"));
+				System.out.println("-----------------------------------");
+			}else {
+				System.out.println("No se ha encontrado el registro.");
+			}
+		}catch(Exception e) {
+			System.out.println("No se pudo mostrar los datos.");
+			e.printStackTrace();//esto después hay que borrarlo porque queda mal que aparezca en la consola.
+		}finally {
+			stmt.close();
+			conexion.close();
+		}
+	}
+	
+	
 	
 }
