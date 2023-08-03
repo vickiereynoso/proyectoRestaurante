@@ -135,17 +135,29 @@ public class AppPrincipal {
 				break;
 			case 3:
 				do {
+				System.out.println("~~~~~~~~~~~~~~ LISTADO DE CLIENTES ~~~~~~~~~~~~~~");
+				System.out.println("");
 				ClienteDAO.listar();
+				System.out.println("");
 				System.out.println("Ingrese id cliente:");
 				int idCliente = teclado.nextInt();
+				System.out.println("~~~~~~~~~~~~~~ LISTADO DE COMIDAS ~~~~~~~~~~~~~~");
+				System.out.println("");
 				ComidaDAO.listar();
+				System.out.println("");
 				System.out.println("Ingrese id comida:");
 				int idComida = teclado.nextInt();
 				System.out.println("Ingrese nombre vendedor:");
-				String nombreVendedor = teclado.next();
-				Venta venta1 = new Venta(idCliente, idComida, nombreVendedor);
+				String vendedor = teclado.next();
+				Venta venta1 = new Venta(idCliente, idComida, vendedor);
 				VentaDAO ventaDAO = new VentaDAO();
 				ventaDAO.insertar(venta1);
+				System.out.println("");
+				System.out.println("");
+				System.out.println("~~~~~~~~~~~~~~ RESUMEN VENTA: ~~~~~~~~~~~~~~");
+				System.out.println("");
+				VentaDAO.listar();
+				teclado.nextLine();
 				System.out.println("");
 				System.out.println("¿Quiere hacer otra venta? SI: 1 | NO: 0");
 				opcion = teclado.nextInt();
@@ -158,19 +170,6 @@ public class AppPrincipal {
 		}while(opcion != 4);
 		System.out.println("Saliste del sistema.");
 
-//		case 3:
-//			while(true) {
-//			System.out.println("Ingrese id cliente:");
-//			int idCliente = teclado.nextInt();
-//			System.out.println("Ingrese id comida:");
-//			int idComida = teclado.nextInt();
-//			System.out.println("Ingrese nombre vendedor:");
-//			String nombreVendedor = teclado.next();
-//			Venta venta1 = new Venta(idCliente, idComida, nombreVendedor);
-//			VentaDAO ventaDAO = new VentaDAO();
-//			ventaDAO.insertar(venta1);
-//			break;
-//			}
 
 		
 		

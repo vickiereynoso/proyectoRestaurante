@@ -102,7 +102,7 @@ public class ClienteDAO {
 		try {
 			String query = "SELECT * FROM CLIENTE";
 			ResultSet datos = stmt.executeQuery(query); //execute query me retornara todos los datos.
-			System.out.println("Los datos fueron mostrados correctamente.");
+			//System.out.println("Los datos fueron mostrados correctamente.");
 			while(datos.next()) {
 				System.out.println("ID: "+ datos.getInt("id"));
 				System.out.println("DNI: "+ datos.getInt("dni"));
