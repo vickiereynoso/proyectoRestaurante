@@ -24,7 +24,8 @@ public class AppPrincipal {
 			+ "\n" + "4.- Consultar comidas consumidas por un cliente."
 			+ "\n" + "5.- Consultar total acumulado de un cliente."
 			+ "\n" + "6.- Consultar ganancia recaudada total del restaurante."
-			+ "\n" + "7.- Salir del sistema.");
+			+ "\n" + "7.- Mostrar mejor vendedor."
+			+ "\n" + "8.- Salir del sistema.");
 			int valor = teclado.nextInt();
 			opcion = valor;
 			switch(valor) {
@@ -125,13 +126,21 @@ public class AppPrincipal {
 				opcion = teclado.nextInt();
 				}while(opcion != 0);
 				break;
-			case 7:				
+			case 7:
+				do {
+				VentaDAO.mostrarMejorVendedor();; 
+				System.out.println("");
+				System.out.println("¿Quiere volver al menú principal? SI: 0 | NO: 1");
+				opcion = teclado.nextInt();
+				}while(opcion != 0);
+				break;
+			case 8:				
 				break;
 			default:
 				System.out.println("Ingresaste un número equivocado. Volvé a intentar.");
 				//break;
 				}
-		}while(opcion != 7);
+		}while(opcion != 8);
 		System.out.println("Saliste del sistema.");
 
 

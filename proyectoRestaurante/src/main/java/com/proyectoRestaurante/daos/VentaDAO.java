@@ -149,8 +149,7 @@ public class VentaDAO {
 	}
 	
 	
-
-	
+	//MOSTRAR los platos consumidos por un cliente en específico:
 	
 	public static void mostrarConsumosCliente(int idCliente) throws SQLException { 
 
@@ -174,6 +173,37 @@ public class VentaDAO {
 					System.out.println("PRECIO: "+ datos.getString("precio"));
 					System.out.println("-----------------------------------");
 				}
+			}
+		}catch(Exception e) {
+			System.out.println("No se pudo mostrar los datos.");
+			e.printStackTrace();//esto después hay que borrarlo porque queda mal que aparezca en la consola.
+		}finally {
+			stmt.close();
+			conexion.close();
+		}
+		
+	}
+	
+	
+	//MOSTRAR vendedor con más ventas:
+	
+	public static void mostrarMejorVendedor() throws SQLException { 
+
+		//	SELECT vendedor, count(*) FROM Venta 
+		//    GROUP BY vendedor
+		//    HAVING COUNT(*)>1;
+		
+		Connection conexion = Conexion.conectar();
+		Statement stmt = conexion.createStatement();
+		
+		try {
+			String query = "SELECT vendedor, count(*) from VENTA GROUP BY vendedor HAVING COUNT(*) > 1";
+			ResultSet datos = stmt.executeQuery(query); 
+			while(datos.next()) {
+					System.out.println("");
+					System.out.println("VENDEDOR: "+ datos.getString("vendedor"));
+					System.out.println("N° VENTAS: "+ datos.getInt("count(*)"));
+					System.out.println("-----------------------------------");
 			}
 		}catch(Exception e) {
 			System.out.println("No se pudo mostrar los datos.");
