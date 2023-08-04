@@ -21,6 +21,7 @@ public class AppPrincipal {
 			"\n" + "1.- Ingresar clientes." 
 			+"\n" + "2.- Ingresar comidas." 
 			+ "\n" + "3.- Hacer una venta."
+			+ "\n" + "5.- Consultar total acumulado de un cliente."
 			+ "\n" + "4.- Salir del sistema.");
 			int valor = teclado.nextInt();
 			opcion = valor;
@@ -64,8 +65,6 @@ public class AppPrincipal {
 				opcion = teclado.nextInt();
 				}while(opcion != 0);
 				break;					
-			case 4:				
-				break;
 			case 3:
 				do {
 				System.out.println("~~~~~~ LISTADO DE CLIENTES ~~~~~~");
@@ -96,6 +95,18 @@ public class AppPrincipal {
 				opcion = teclado.nextInt();
 				}while(opcion != 0);
 				break;
+			case 5:
+				do {
+				System.out.println("Ingrese id cliente:");
+				int idCliente = teclado.nextInt();
+				VentaDAO.mostrarCostoAcumuladoCliente(idCliente); 
+				System.out.println("");
+				System.out.println("¿Quiere hacer otra venta? SI: 1 | NO: 0");
+				opcion = teclado.nextInt();
+				}while(opcion != 0);
+				break;
+			case 4:				
+				break;
 			default:
 				System.out.println("Ingresaste un número equivocado. Volvé a intentar.");
 				//break;
@@ -108,7 +119,5 @@ public class AppPrincipal {
 		
 		
 		
-	}
-
-	
+	}	
 }

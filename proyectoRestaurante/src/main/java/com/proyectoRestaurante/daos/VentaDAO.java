@@ -80,4 +80,41 @@ public class VentaDAO {
 		}
 	}
 	
+	
+	//MOSTRAR valor $ total de ventas:
+	
+	
+		//	Select sum(PRECIO),idcliente from Venta v
+		//	left join Comida c on v.idcomida = c.id
+		//	left join Cliente cli on v.idcliente = cli.id
+		//	where cli.id = 38;
+	
+	public static void mostrarCostoAcumuladoCliente(int idCliente) throws SQLException { 
+		
+		Connection conexion = Conexion.conectar();
+		Statement stmt = conexion.createStatement();
+		
+		try {
+			String query = " SELECT sum(PRECIO),idcliente from Venta v left join Comida c on v.idcomida = c.id left join Cliente cli on v.idcliente = cli.id where cli.id = " + idCliente;
+			ResultSet datos = stmt.executeQuery(query); 
+			while(datos.next()) {
+				if(datos.getInt("idcliente") == idCliente ) {
+					System.out.println("");
+					System.out.println("ID CLIENTE: "+ datos.getInt("idCliente"));
+					System.out.println("TOTAL $: " + datos.getInt("sum(PRECIO)"));
+					System.out.println("-----------------------------------");
+				}
+			}
+		}catch(Exception e) {
+			System.out.println("No se pudo mostrar los datos.");
+			e.printStackTrace();//esto después hay que borrarlo porque queda mal que aparezca en la consola.
+		}finally {
+			stmt.close();
+			conexion.close();
+		}
+		
+	}
+	
+	
+	
 }
