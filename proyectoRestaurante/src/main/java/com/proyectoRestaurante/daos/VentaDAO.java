@@ -1,13 +1,19 @@
 package com.proyectoRestaurante.daos;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 import com.proyectoRestaurante.conexiones.*;
 import com.proyectoRestaurante.entidades.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+import java.io.BufferedWriter;
 
 public class VentaDAO {
 
@@ -212,8 +218,71 @@ public class VentaDAO {
 			stmt.close();
 			conexion.close();
 		}
-		
 	}
+	
+	
+	//Retornar datos para el reporte:
+	
+	public static ArrayList retornarDatos() throws SQLException { 
+
+//		-- Quiero ver la tabla ventas + precio de cada venta:
+//			-- ventas (idventa y vendedor) y comida (nombre, descripcion y precio)
+//			Select v.idventa, v.vendedor, c.nombre,c.descripcion,c.precio from Venta v
+//			left join Comida c on v.idcomida = c.id;
+		
+		ArrayList resultados =  new ArrayList<>() ;
+		String fila = null;
+		
+		Connection conexion = Conexion.conectar();
+		Statement stmt = conexion.createStatement();
+		
+		try {
+			String query = "Select v.idventa, v.vendedor, c.nombre, c.descripcion, c.precio from Venta v left join Comida c on v.idcomida = c.id";
+			ResultSet datos = stmt.executeQuery(query); 
+			
+			while(datos.next()) {
+				fila = "IDVENTA: "+ (Integer.toString(datos.getInt("idventa"))
+						+ "\n"+ "VENDEDOR: "+ datos.getString("vendedor"))
+						+ "\n" + "PLATO: " + datos.getString("nombre")
+						+ "\n" + "DESCRIPCIÓN: " + datos.getString("descripcion")
+						+ "\n" + "PRECIO: " + datos.getString("precio")
+						+ "\n";		
+				resultados.add(fila);
+			}
+		}catch(Exception e) {
+			System.out.println("No se pudo mostrar los datos.");
+			e.printStackTrace();//esto después hay que borrarlo porque queda mal que aparezca en la consola.
+		}finally {
+			stmt.close();
+			conexion.close();
+		}
+		System.out.println(resultados);
+		return resultados;
+	}
+	
+	
+	public static void generarReporteVentas() throws SQLException, IOException { 
+
+		Connection conexion = Conexion.conectar();
+		Statement stmt = conexion.createStatement();
+		try {
+			
+			File file = new File("reporteVentas.txt");
+			FileWriter fw = new FileWriter(file);
+			char[] chars = retornarDatos().toString().toCharArray();
+			BufferedWriter bw = new BufferedWriter(fw);
+			bw.write(chars, 0, chars.length);
+			bw.newLine(); //es una especie de "\n".
+			bw.close();
+		}catch(Exception e) {
+			System.out.println("No se pudo mostrar los datos.");
+			e.printStackTrace();//esto después hay que borrarlo porque queda mal que aparezca en la consola.
+		}finally {
+			stmt.close();
+			conexion.close();
+		}
+	}
+	
 	
 	
 	

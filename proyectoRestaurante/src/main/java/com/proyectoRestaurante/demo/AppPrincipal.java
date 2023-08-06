@@ -2,12 +2,14 @@ package com.proyectoRestaurante.demo;
 
 import com.proyectoRestaurante.entidades.*;
 import com.proyectoRestaurante.daos.*;
+
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.*;
 
 public class AppPrincipal {
 
-	public static void main(String[] args) throws SQLException {
+	public static void main(String[] args) throws SQLException, IOException {
 		// TODO Auto-generated method stub
 
 
@@ -25,6 +27,7 @@ public class AppPrincipal {
 			+ "\n" + "5.- Consultar total acumulado de un cliente."
 			+ "\n" + "6.- Consultar ganancia recaudada total del restaurante."
 			+ "\n" + "7.- Mostrar mejor vendedor."
+			+ "\n" + "9.- Imprimir ventas."
 			+ "\n" + "8.- Salir del sistema.");
 			int valor = teclado.nextInt();
 			opcion = valor;
@@ -128,7 +131,16 @@ public class AppPrincipal {
 				break;
 			case 7:
 				do {
-				VentaDAO.mostrarMejorVendedor();; 
+				VentaDAO.mostrarMejorVendedor(); 
+				System.out.println("");
+				System.out.println("¿Quiere volver al menú principal? SI: 0 | NO: 1");
+				opcion = teclado.nextInt();
+				}while(opcion != 0);
+				break;
+			case 9:
+				do {
+				//VentaDAO.retornarDatos();
+				VentaDAO.generarReporteVentas(); 
 				System.out.println("");
 				System.out.println("¿Quiere volver al menú principal? SI: 0 | NO: 1");
 				opcion = teclado.nextInt();
