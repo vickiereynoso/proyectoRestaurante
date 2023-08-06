@@ -1,0 +1,91 @@
+[
+ID: 2
+NOMBRE: Pizza
+DESCRIPCION: Pizza doble muzza
+PRECIO: 4200.0
+, 
+ID: 4
+NOMBRE: Milanesa
+DESCRIPCION: Mila con puré
+PRECIO: 3000.0
+, 
+ID: 5
+NOMBRE: Hamburguesa
+DESCRIPCION: Con papas
+PRECIO: 3000.0
+, 
+ID: 6
+NOMBRE: ravioles
+DESCRIPCION: queso
+PRECIO: 1600.0
+, 
+ID: 7
+NOMBRE: ert
+DESCRIPCION: eru
+PRECIO: 246.0
+, 
+ID: 8
+NOMBRE: parrilla
+DESCRIPCION: completa
+PRECIO: 2500.0
+, 
+ID: 9
+NOMBRE: parrilla
+DESCRIPCION: para
+PRECIO: 2.0
+, 
+ID: 10
+NOMBRE: provoleta
+DESCRIPCION: oregan
+PRECIO: 2345.0
+, 
+ID: 11
+NOMBRE: 
+DESCRIPCION: eee
+PRECIO: 234.0
+, 
+ID: 12
+NOMBRE: 
+DESCRIPCION: www
+PRECIO: 345.0
+, 
+ID: 13
+NOMBRE: 
+DESCRIPCION: rtt
+PRECIO: 98632.0
+, 
+ID: 14
+NOMBRE: 
+DESCRIPCION: con fideso
+PRECIO: 2345.0
+, 
+ID: 15
+NOMBRE: 
+DESCRIPCION: con muzarela
+PRECIO: 4569.0
+, 
+ID: 16
+NOMBRE: 
+DESCRIPCION: tuco con oregano
+PRECIO: 23459.0
+, 
+ID: 17
+NOMBRE: 
+DESCRIPCION: humita picante
+PRECIO: 39871.0
+, 
+ID: 18
+NOMBRE: 
+DESCRIPCION: con salsa
+PRECIO: 829.0
+, 
+ID: 19
+NOMBRE: 
+DESCRIPCION: con salsa crema
+PRECIO: 555.0
+, 
+ID: 20
+NOMBRE: 
+DESCRIPCION: con salsa bolognesa
+PRECIO: 7782.0
+]

@@ -1,0 +1,56 @@
+[
+IDCLIENTE: 2
+NOMBRE: Juan Gómez,
+DESCRIPCION: Pizza doble muzza
+PRECIO: 4200.0
+, 
+IDCLIENTE: 2
+NOMBRE: Juan Gómez,
+DESCRIPCION: Mila con puré
+PRECIO: 3000.0
+, 
+IDCLIENTE: 15
+NOMBRE: walter
+DESCRIPCION: queso
+PRECIO: 1600.0
+, 
+IDCLIENTE: 28
+NOMBRE: maria
+DESCRIPCION: para
+PRECIO: 2.0
+, 
+IDCLIENTE: 34
+NOMBRE: macarena
+DESCRIPCION: tuco con oregano
+PRECIO: 23459.0
+, 
+IDCLIENTE: 37
+NOMBRE: josefina
+DESCRIPCION: humita picante
+PRECIO: 39871.0
+, 
+IDCLIENTE: 38
+NOMBRE: maria
+DESCRIPCION: con muzarela
+PRECIO: 4569.0
+, 
+IDCLIENTE: 38
+NOMBRE: maria
+DESCRIPCION: con fideso
+PRECIO: 2345.0
+, 
+IDCLIENTE: 39
+NOMBRE: joaquin
+DESCRIPCION: tuco con oregano
+PRECIO: 23459.0
+, 
+IDCLIENTE: 39
+NOMBRE: joaquin
+DESCRIPCION: para
+PRECIO: 2.0
+, 
+IDCLIENTE: 40
+NOMBRE: estefania
+DESCRIPCION: con salsa bolognesa
+PRECIO: 7782.0
+]

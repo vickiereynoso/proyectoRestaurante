@@ -27,7 +27,7 @@ public class AppPrincipal {
 			+ "\n" + "5.- Consultar total acumulado de un cliente."
 			+ "\n" + "6.- Consultar ganancia recaudada total del restaurante."
 			+ "\n" + "7.- Mostrar mejor vendedor."
-			+ "\n" + "9.- Imprimir ventas."
+			+ "\n" + "9.- Generar INFORMES."
 			+ "\n" + "8.- Salir del sistema.");
 			int valor = teclado.nextInt();
 			opcion = valor;
@@ -140,7 +140,7 @@ public class AppPrincipal {
 			case 9:
 				do {
 				//VentaDAO.retornarDatos();
-				VentaDAO.generarReporteVentas(); 
+				VentaDAO.generarInforme(); 
 				System.out.println("");
 				System.out.println("¿Quiere volver al menú principal? SI: 0 | NO: 1");
 				opcion = teclado.nextInt();
